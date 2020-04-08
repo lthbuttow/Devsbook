@@ -1,20 +1,20 @@
 <?php
 namespace src\controllers;
 
-use \core\Controller;
-use \src\handlers\LoginHandler;
+use core\Controller;
+use src\handlers\LoginHandler;
 
-class LoginController extends Controller {
-
-    public function signin() {
+class LoginController extends Controller
+{
+    public function signin(){
         $flash = '';
-        if(!empty($_SESSION['flash'])){
+        if (!empty($_SESSION['flash'])) {
             $flash = $_SESSION['flash'];
             $_SESSION['flash'] = '';
         }
 
-        $this->render('login', [
-            'flash' => $flash
+        $this->render('signin', [
+            'flash' => $flash,
         ]);
     }
 
@@ -22,17 +22,15 @@ class LoginController extends Controller {
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $password = filter_input(INPUT_POST, 'password');
 
-        if($email && $password) {
-
+        if ($email && $password) {
             $token = LoginHandler::verifyLogin($email, $password);
-            if($token) {
+            if ($token) {
                 $_SESSION['token'] = $token;
                 $this->redirect('/');
             } else {
                 $_SESSION['flash'] = 'E-mail e/ou senha não conferem.';
                 $this->redirect('/login');
             }
-
         } else {
             $_SESSION['flash'] = 'Digite os campos de e-mail e/ou senha.';
             $this->redirect('/login');
@@ -40,7 +38,18 @@ class LoginController extends Controller {
     }
 
     public function signup() {
-        echo 'signup';
+        $flash = '';
+        if (!empty($_SESSION['flash'])) {
+            $flash = $_SESSION['flash'];
+            $_SESSION['flash'] = '';
+        }
+
+        $this->render('signup', [
+            'flash' => $flash,
+        ]);
     }
 
+    public function signupAction() {
+
+    }
 }
