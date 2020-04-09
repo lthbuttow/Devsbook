@@ -13,12 +13,9 @@ class LoginHandler {
             if(count($data) > 0) {
 
                 $loggedUser = new User();
-                // $loggedUser->setId($data['id']);
-                // $loggedUser->setEmail($data['email']);
-                // $loggedUser->setName($data['name']);
                 $loggedUser->id = $data['id'];
-                $loggedUser->email = $data['email'];
                 $loggedUser->name = $data['name'];
+                $loggedUser->avatar = $data['avatar'];
 
                 return $loggedUser;
             }
