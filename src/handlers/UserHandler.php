@@ -122,4 +122,16 @@ class UserHandler {
         return $token;
     }
 
+    public function isFollowing($from, $to) {
+        $data = UserRelation::select()
+            ->where('user_from', $from)
+            ->where('user_to', $to)
+            ->one();
+
+        if($data) {
+            return true;
+        }
+        return false;
+    }
+
 }
