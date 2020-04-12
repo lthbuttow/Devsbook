@@ -52,7 +52,7 @@ class ProfileController extends Controller {
             'loggedUser' => $this->loggedUser,
             'user' => $user,
             'feed' => $feed,
-            'isFollowing' => $isFollowing
+            'isFollowing' => $isFollowing,
         ]);
     }
 
