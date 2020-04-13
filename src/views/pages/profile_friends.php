@@ -48,18 +48,18 @@
                             <div class="tab-body" data-item="following">
 
                                 <div class="full-friend-list">
-                                <?php foreach($user->following as $follower): ?>
-                                    <div class="friend-icon">
-                                        <a href="<?=$base;?>/perfil/<?=$follower->id;?>">
-                                            <div class="friend-icon-avatar">
-                                                <img src="<?=$base;?>/media/avatars/<?=$follower->avatar;?>" />
-                                            </div>
-                                            <div class="friend-icon-name">
-                                                <?=$follower->name;?>
-                                            </div>
-                                        </a>
-                                    </div>
-                                <?php endforeach; ?>
+                                    <?php foreach($user->following as $follower): ?>
+                                        <div class="friend-icon">
+                                            <a href="<?=$base;?>/perfil/<?=$follower->id;?>">
+                                                <div class="friend-icon-avatar">
+                                                    <img src="<?=$base;?>/media/avatars/<?=$follower->avatar;?>" />
+                                                </div>
+                                                <div class="friend-icon-name">
+                                                    <?=$follower->name;?>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
 
                             </div>
