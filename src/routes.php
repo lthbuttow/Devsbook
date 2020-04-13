@@ -26,6 +26,11 @@ $router->get('/pesquisar', 'SearchController@index');
 
 $router->get('/sair', 'LoginController@logout');
 
+$router->get('/tarefas', 'TaskController@index');
+$router->get('/tarefas/get', 'TaskController@get');
+
+
+
 
 //$router->get('/pesquisar');
 //$router->get('/sair');
